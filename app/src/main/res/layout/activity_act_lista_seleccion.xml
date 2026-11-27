@@ -5,73 +5,122 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/fondo"
+    android:theme="@style/ThemeOverlay.Material3.Light"
     tools:context=".ActListaSeleccion">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="208dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logouteq" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilListaSemestre"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+    <LinearLayout
+        android:id="@+id/cabecera"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Semestre"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_cabecera"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <AutoCompleteTextView
-            android:id="@+id/listaNiveles"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="110dp"
+            android:layout_height="127dp"
+            android:contentDescription="Logo UTEQ"
+            app:srcCompat="@drawable/escudo_uteq" />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="none"
-            app:simpleItems="@array/niveles" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Universidad Técnica Estatal de Quevedo"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilListaMaterias"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        <View
+            android:layout_width="56dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="6dp"
+            android:background="@color/dorado" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tarjetaSelectores"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Materias"
+        android:layout_marginHorizontal="12dp"
+        android:background="@drawable/bg_blanco"
+        android:elevation="3dp"
+        android:orientation="vertical"
+        android:padding="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilListaSemestre">
+        app:layout_constraintTop_toBottomOf="@+id/cabecera">
 
-        <AutoCompleteTextView
-            android:id="@+id/listaMaterias"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilListaSemestre"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="0dp"
+            android:hint="Semestre"
+            app:boxBackgroundColor="#FFFFFF"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxStrokeColor="@color/verde"
+            app:endIconTint="@color/verde"
+            app:hintTextColor="@color/verde">
 
+            <AutoCompleteTextView
+                android:id="@+id/listaNiveles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:textColor="@color/texto"
+                app:simpleItems="@array/niveles" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilListaMaterias"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Materias"
+            app:boxBackgroundColor="#FFFFFF"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxStrokeColor="@color/verde"
+            app:endIconTint="@color/verde"
+            app:hintTextColor="@color/verde">
+
+            <AutoCompleteTextView
+                android:id="@+id/listaMaterias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:textColor="@color/texto" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
     <ListView
+        android:id="@+id/lvAlumnos"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="10dp"
+        android:clipToPadding="false"
+        android:divider="@null"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilListaMaterias" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/tarjetaSelectores" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
